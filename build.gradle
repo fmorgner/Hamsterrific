@@ -1,43 +1,51 @@
 plugins {
-    id "net.minecraftforge.gradle.forge" version "2.0.2"
+  id "net.minecraftforge.gradle.forge" version "2.0.2"
 }
 
+group = "es.razzleberri"
+archivesBaseName = "hamsterrific"
 version = "0.3"
-archivesBaseName = "Hamsterrific"
-group = "es.razzleberri.hamsterrific"
 
 minecraft {
-    version = "1.8-11.14.4.1563"
-    runDir = "run"
-    mappings = "stable_18"
+  version = "1.8-11.14.4.1563"
+  runDir = "run"
+  mappings = "stable_18"
+
+  def modid = "${group}.${archivesBaseName}"
+  def modname = "${archivesBaseName}"
+
+  replace "@MCVERSION@", project.minecraft.version
+  replace "@MODVERSION@", project.version
+  replace "@MODID@", modid
+  replace "@MODID@", modname
+  replaceIn "Hamsterrific.java"
 }
 
 tasks.withType(JavaCompile) {
-    sourceCompatibility = "1.8"
-    targetCompatibility = "1.8"
+  sourceCompatibility = "1.8"
+  targetCompatibility = "1.8"
 }
 
 processResources
-        {
-            inputs.property "version", project.version
-            inputs.property "mcversion", project.minecraft.version
+  {
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
 
-            from(sourceSets.main.resources.srcDirs) {
-                include 'mcmod.info'
+    from(sourceSets.main.resources.srcDirs) {
+      include 'mcmod.info'
 
-                expand 'version': project.version, 'mcversion': project.minecraft.version
-            }
+      expand 'version': project.version, 'mcversion': project.minecraft.version
+    }
 
-            from(sourceSets.main.resources.srcDirs) {
-                exclude 'mcmod.info'
-            }
-        }
+    from(sourceSets.main.resources.srcDirs) {
+      exclude 'mcmod.info'
+    }
+  }
 
 idea
-        {
-            module
-                    {
-                        inheritOutputDirs = true
-                    }
-        }
-
+  {
+    module
+      {
+        inheritOutputDirs = true
+      }
+  }
