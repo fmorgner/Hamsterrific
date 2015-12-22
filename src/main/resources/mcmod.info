@@ -1,0 +1,16 @@
+[
+{
+  "modid": "es.razzleberri.hamsterrific",
+  "name": "Hamsterrific",
+  "description": "Cute hamsters!",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Razzleberry Fox", "Felix Morgner"],
+  "credits": "Copyright (c) Razzleberries, released under GPLv2",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": ["mod_MinecraftForge"]
+}
+]
