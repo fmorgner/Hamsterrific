@@ -1,7 +1,7 @@
 package es.razzleberri.hamsterrific.proxy;
 
 import es.razzleberri.hamsterrific.Hamsterrific;
-import es.razzleberri.hamsterrific.entity.RegularHamster;
+import es.razzleberri.hamsterrific.entity.EntityRegularHamster;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -28,7 +28,7 @@ public class Common {
 
   public void onInit(FMLInitializationEvent event) {
     m_modInstance.LOGGER.debug("Registering \"" + NAME_REGULAR_HAMSTER + "\"");
-    EntityRegistry.registerModEntity(RegularHamster.class, NAME_REGULAR_HAMSTER, m_regularHamsterId.getInt(),
+    EntityRegistry.registerModEntity(EntityRegularHamster.class, NAME_REGULAR_HAMSTER, m_regularHamsterId.getInt(),
                                      Hamsterrific.instance, 100, 1, false);
   }
 
