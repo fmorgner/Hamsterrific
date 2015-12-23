@@ -1,12 +1,10 @@
 package es.razzleberri.hamsterrific.model;
 
 import es.razzleberri.hamsterrific.Hamsterrific;
-import net.minecraft.block.BlockRedstoneComparator;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import org.lwjgl.opengl.GL11;
 
 public class ModelHamster extends ModelBase {
 
@@ -15,11 +13,12 @@ public class ModelHamster extends ModelBase {
 
   public ModelHamster() {
     m_head = new ModelRenderer(this, 0, 0);
-    m_head.addBox(-2.5f, -1.5f, -7.5f, 5, 5, 5, -.51f);
+    m_head.addBox(-2.5f, -3.5f, -2.5f, 5, 5, 5);
+    m_head.setRotationPoint(0, -2.5f, -3.5f);
 
     m_body = new ModelRenderer(this, 0, 10);
-    m_body.addBox(-2.5f, 0, -4.0f, 5, 5, 8, -.5f);
-    m_body.setRotationPoint(0, 16, 0);
+    m_body.addBox(-2.5f, -5.0f, -4.0f, 5, 5, 8);
+    m_body.setRotationPoint(0, 20, 0);
     m_body.addChild(m_head);
   }
 
@@ -28,14 +27,11 @@ public class ModelHamster extends ModelBase {
   }
 
   @Override
-  public void render(Entity entity, float time, float speed, float rotation, float headRotationX, float headRotationY, float scale) {
-    setRotationAngles(time, speed, rotation, headRotationX, headRotationY, scale, entity);
-
+  public void render(Entity entity, float distanceMoved, float speed, float timeExisted, float lookX, float lookY, float scale) {
     m_body.render(scale);
   }
 
   @Override
-  public void setRotationAngles(float time, float speed, float rotation, float headRotationX, float headRotationY, float scale, Entity entity) {
-
+  public void setRotationAngles(float distanceMoved, float speed, float timeExisted, float lookX, float lookY, float scale, Entity entity) {
   }
 }
