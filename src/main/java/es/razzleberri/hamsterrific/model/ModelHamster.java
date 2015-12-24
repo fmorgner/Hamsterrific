@@ -1,6 +1,5 @@
 package es.razzleberri.hamsterrific.model;
 
-import es.razzleberri.hamsterrific.Hamsterrific;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -33,5 +32,7 @@ public class ModelHamster extends ModelBase {
 
   @Override
   public void setRotationAngles(float distanceMoved, float speed, float timeExisted, float lookX, float lookY, float scale, Entity entity) {
+    m_head.rotateAngleX = (float) (lookY / (180 / Math.PI));
+    m_head.rotateAngleY = (float) (lookX / (180 / Math.PI));
   }
 }
