@@ -17,6 +17,11 @@ public class RenderHamster extends RenderLiving {
   }
 
   @Override
+  protected void preRenderCallback(EntityLivingBase entitylivingbaseIn, float partialTickTime) {
+    GL11.glScalef(.5f, .5f, .5f);
+  }
+
+  @Override
   protected ResourceLocation getEntityTexture(Entity entity) {
     return new ResourceLocation(Hamsterrific.MOD_ID + ":textures/entity/hamster/darkbrown.png");
   }
