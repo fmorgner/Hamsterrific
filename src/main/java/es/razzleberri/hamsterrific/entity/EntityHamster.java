@@ -1,5 +1,6 @@
 package es.razzleberri.hamsterrific.entity;
 
+import es.razzleberri.hamsterrific.Hamsterrific;
 import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -16,7 +17,7 @@ public abstract class EntityHamster extends EntityTameable {
     super(world);
 
     setHealth(10);
-    setSize(.5f, .6f);
+    setSize(.25f, .3f);
 
     m_breedingItems = new ArrayList<>();
   }
@@ -35,4 +36,19 @@ public abstract class EntityHamster extends EntityTameable {
     return height * .8f;
   }
 
+  @Override
+  protected String getHurtSound() {
+    return Hamsterrific.MOD_ID + ":hurtSound";
+  }
+
+  @Override
+  protected String getLivingSound() {
+    return Hamsterrific.MOD_ID + ":livingSound";
+  }
+
+  @Override
+  protected String getDeathSound() {
+    return Hamsterrific.MOD_ID + ":deathSound";
+  }
+  
 }
