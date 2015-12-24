@@ -1,0 +1,7 @@
+{
+  "deathSound":  {"category": "master","sounds": [{"name": "deathSound",  "stream": false}]},
+  "eatSound":    {"category": "master","sounds": [{"name": "eatSound",    "stream": false}]},
+  "hurtSound":   {"category": "master","sounds": [{"name": "hurtSound",   "stream": false}]},
+  "livingSound": {"category": "master","sounds": [{"name": "livingSound", "stream": false}]}
+}
+
