@@ -8,6 +8,9 @@ import net.minecraft.entity.EntityLivingBase;
 
 public class ModelHamster extends ModelBase {
 
+  public static final float SCALE_FACTOR_CHEEKS_BASE = 0.05f;
+  public static final float SCALE_FACTOR_CHEEKS_STEP = 0.02f;
+
   private ModelRenderer m_body;
 
   private ModelRenderer m_head;
@@ -17,8 +20,8 @@ public class ModelHamster extends ModelBase {
   private ModelRenderer m_legBackRight;
   private ModelRenderer m_legBackLeft;
 
-  private ModelRenderer m_leftCheek;
-  private ModelRenderer m_rightCheek;
+  private ModelRenderer m_cheekLeft;
+  private ModelRenderer m_cheekRight;
 
   public ModelHamster() {
     m_legFrontRight = new ModelRenderer(this, 0, 23);
@@ -37,19 +40,19 @@ public class ModelHamster extends ModelBase {
     m_legBackLeft.addBox(-.5f, 0, -.5f, 1, 2, 1);
     m_legBackLeft.setRotationPoint(2.1f, -.5f, 3.6f);
 
-    m_leftCheek = new ModelRenderer(this, 4, 23);
-    m_leftCheek.addBox(0, -0.5f, -0.5f, 1, 1, 1);
-    m_leftCheek.setRotationPoint(2.f, 0, -2.5f);
+    m_cheekLeft = new ModelRenderer(this, 4, 23);
+    m_cheekLeft.addBox(0, -0.5f, -0.5f, 1, 1, 1);
+    m_cheekLeft.setRotationPoint(2.f, 0, -2.5f);
 
-    m_rightCheek = new ModelRenderer(this, 4, 23);
-    m_rightCheek.addBox(-1.f, -0.5f, -0.5f, 1, 1, 1);
-    m_rightCheek.setRotationPoint(-2.f, 0, -2.5f);
+    m_cheekRight = new ModelRenderer(this, 4, 23);
+    m_cheekRight.addBox(-1.f, -0.5f, -0.5f, 1, 1, 1);
+    m_cheekRight.setRotationPoint(-2.f, 0, -2.5f);
 
     m_head = new ModelRenderer(this, 0, 0);
     m_head.addBox(-2.5f, -3.5f, -5.0f, 5, 5, 5, 0.1f);
     m_head.setRotationPoint(0, -2.5f, -4.0f);
-    m_head.addChild(m_leftCheek);
-    m_head.addChild(m_rightCheek);
+    m_head.addChild(m_cheekLeft);
+    m_head.addChild(m_cheekRight);
 
     m_body = new ModelRenderer(this, 0, 10);
     m_body.addBox(-2.5f, -5.0f, -4.0f, 5, 5, 8);
@@ -78,8 +81,8 @@ public class ModelHamster extends ModelBase {
   }
 
   private void updateCheeks(EntityHamster hamster) {
-    m_leftCheek.compileDisplayList(0.05f + 0.02f * hamster.getFoodLevel());
-    m_rightCheek.compileDisplayList(0.05f + 0.02f * hamster.getFoodLevel());
+    m_cheekLeft.compileDisplayList(SCALE_FACTOR_CHEEKS_BASE + SCALE_FACTOR_CHEEKS_STEP * hamster.getFoodLevel());
+    m_cheekRight.compileDisplayList(SCALE_FACTOR_CHEEKS_BASE + SCALE_FACTOR_CHEEKS_STEP * hamster.getFoodLevel());
   }
 
 }
