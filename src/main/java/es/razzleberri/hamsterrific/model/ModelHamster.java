@@ -1,5 +1,6 @@
 package es.razzleberri.hamsterrific.model;
 
+import es.razzleberri.hamsterrific.entity.EntityHamster;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -20,7 +21,6 @@ public class ModelHamster extends ModelBase {
   private ModelRenderer m_rightCheek;
 
   public ModelHamster() {
-
     m_legFrontRight = new ModelRenderer(this, 0, 23);
     m_legFrontRight.addBox(-.5f, 0, -.5f, 1, 2, 1);
     m_legFrontRight.setRotationPoint(-2.1f, -.5f, -3.6f);
@@ -67,6 +67,7 @@ public class ModelHamster extends ModelBase {
 
   @Override
   public void render(Entity entity, float distanceMoved, float speed, float timeExisted, float lookX, float lookY, float scale) {
+    updateCheeks((EntityHamster) entity);
     m_body.render(scale);
   }
 
@@ -75,4 +76,10 @@ public class ModelHamster extends ModelBase {
     m_head.rotateAngleX = (float) (lookY / (180 / Math.PI));
     m_head.rotateAngleY = (float) (lookX / (180 / Math.PI));
   }
+
+  private void updateCheeks(EntityHamster hamster) {
+    m_leftCheek.compileDisplayList(0.05f + 0.02f * hamster.getFoodLevel());
+    m_rightCheek.compileDisplayList(0.05f + 0.02f * hamster.getFoodLevel());
+  }
+
 }
