@@ -1,16 +1,16 @@
 plugins {
-  id "net.minecraftforge.gradle.forge" version "2.0.2"
+    id "net.minecraftforge.gradle.forge" version "2.0.2"
 }
 
 group = "es.razzleberri"
 archivesBaseName = "hamsterrific"
 version = "0.3"
 
-
 minecraft {
   version = "1.8-11.14.4.1563"
   runDir = "run"
   mappings = "stable_18"
+  at "hamsterrific_at.cfg"
 }
 
 tasks.withType(JavaCompile) {
