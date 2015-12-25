@@ -8,16 +8,18 @@ import net.minecraft.entity.EntityLivingBase;
 public class ModelHamster extends ModelBase {
 
   private ModelRenderer m_body;
+
   private ModelRenderer m_head;
+
   private ModelRenderer m_legFrontRight;
   private ModelRenderer m_legFrontLeft;
   private ModelRenderer m_legBackRight;
   private ModelRenderer m_legBackLeft;
 
+  private ModelRenderer m_leftCheek;
+  private ModelRenderer m_rightCheek;
+
   public ModelHamster() {
-    m_head = new ModelRenderer(this, 0, 0);
-    m_head.addBox(-2.5f, -3.5f, -2.5f, 5, 5, 5);
-    m_head.setRotationPoint(0, -2.5f, -3.5f);
 
     m_legFrontRight = new ModelRenderer(this, 0, 23);
     m_legFrontRight.addBox(-.5f, 0, -.5f, 1, 2, 1);
@@ -35,6 +37,19 @@ public class ModelHamster extends ModelBase {
     m_legBackLeft.addBox(-.5f, 0, -.5f, 1, 2, 1);
     m_legBackLeft.setRotationPoint(2.1f, -.5f, 3.6f);
 
+    m_leftCheek = new ModelRenderer(this, 4, 23);
+    m_leftCheek.addBox(0, -0.5f, -0.5f, 1, 1, 1);
+    m_leftCheek.setRotationPoint(2.f, 0, -2.5f);
+
+    m_rightCheek = new ModelRenderer(this, 4, 23);
+    m_rightCheek.addBox(-1.f, -0.5f, -0.5f, 1, 1, 1);
+    m_rightCheek.setRotationPoint(-2.f, 0, -2.5f);
+
+    m_head = new ModelRenderer(this, 0, 0);
+    m_head.addBox(-2.5f, -3.5f, -5.0f, 5, 5, 5, 0.1f);
+    m_head.setRotationPoint(0, -2.5f, -4.0f);
+    m_head.addChild(m_leftCheek);
+    m_head.addChild(m_rightCheek);
 
     m_body = new ModelRenderer(this, 0, 10);
     m_body.addBox(-2.5f, -5.0f, -4.0f, 5, 5, 8);
