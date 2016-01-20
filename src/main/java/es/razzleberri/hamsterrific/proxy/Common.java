@@ -29,7 +29,7 @@ public class Common {
   public void onInit(FMLInitializationEvent event) {
     m_modInstance.LOGGER.debug("Registering \"" + NAME_REGULAR_HAMSTER + "\"");
     EntityRegistry.registerModEntity(EntityRegularHamster.class, NAME_REGULAR_HAMSTER, m_regularHamsterId.getInt(),
-                                     Hamsterrific.instance, 100, 1, false);
+      Hamsterrific.instance, 100, 1, false);
   }
 
   public void onStopping(FMLServerStoppingEvent event) {

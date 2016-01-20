@@ -45,7 +45,7 @@ public abstract class EntityHamster extends EntityTameable {
   }
 
   protected final void consumeFood() {
-    if(m_foodLevel > 0) {
+    if (m_foodLevel > 0) {
       --m_foodLevel;
     }
   }
@@ -55,10 +55,10 @@ public abstract class EntityHamster extends EntityTameable {
   private boolean handleEatableItem(EntityPlayer player) {
     ItemStack heldItem = player.getHeldItem();
 
-    if(m_foodLevel < 4) {
+    if (m_foodLevel < 4) {
       consumeItemFromStack(player, heldItem);
 
-      if(++m_foodLevel == 4 && isBreedingItem(heldItem)) {
+      if (++m_foodLevel == 4 && isBreedingItem(heldItem)) {
         setInLove(player);
       }
 
@@ -99,7 +99,7 @@ public abstract class EntityHamster extends EntityTameable {
 
   @Override
   public boolean interact(EntityPlayer player) {
-    if(isEatable(player.getHeldItem())) {
+    if (isEatable(player.getHeldItem())) {
       return handleEatableItem(player);
     }
 

@@ -13,6 +13,6 @@ public class Client extends Common {
     super.onInit(event);
 
     RenderingRegistry.registerEntityRenderingHandler(EntityHamster.class, new RenderHamster(new ModelHamster(), .5f));
-    }
-
   }
+
+}

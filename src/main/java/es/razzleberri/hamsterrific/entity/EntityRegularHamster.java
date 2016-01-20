@@ -22,7 +22,7 @@ public class EntityRegularHamster extends EntityHamster {
 
   @Override
   protected void updateFoodLevel() {
-    if(rand.nextInt(42) == 0 && rand.nextInt(42) == 0) {
+    if (rand.nextInt(42) == 0 && rand.nextInt(42) == 0) {
       consumeFood();
     }
   }
